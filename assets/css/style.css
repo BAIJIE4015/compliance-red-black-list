@@ -1,0 +1,12 @@
+/* ============================================================
+   企业合规红黑榜 · 样式入口（style.css）
+   五层体系：tokens → base → layout → components → utilities
+   变更口径：项目根 DESIGN.md；层级顺序不可调换
+   HTML 只允许挂本文件；层内差异找对应层，不要在本文件堆规则
+   ============================================================ */
+
+@import url("tokens.css");
+@import url("base.css");
+@import url("layout.css");
+@import url("components.css");
+@import url("utilities.css");

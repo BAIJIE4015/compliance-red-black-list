@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企业合规红黑榜 · 首页</title>
+    <meta name="description" content="面向全球企业的合规观察索引 —— 可核验、可申诉、可撤销">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+
+<a class="u-skip-link" href="#main">跳到主内容</a>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="site-header">
+    <div class="inner">
+        <a class="site-logo" href="index.html"><span class="logo-mark"></span>企业合规红黑榜</a>
+        <nav class="site-nav">
+            <a class="active" href="index.html">首页</a>
+            <a href="pages/open-source.html">开源与软件合规</a>
+            <a href="pages/illegal-profit.html">破解与非法盈利</a>
+            <a href="pages/design.html">独立设计与跟风设计</a>
+            <a href="pages/labor.html">作息与用工合规</a>
+            <a href="pages/methodology.html">分级体系</a>
+            <a href="pages/appeal.html">申诉通道</a>
+            <a href="pages/about.html">关于</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ===== 首页横幅 ===== -->
+<section class="page-hero">
+    <div class="inner">
+        <h1>企业合规红黑榜</h1>
+        <p class="subtitle">合规观察索引 · 可核验 · 可申诉 · 可撤销<br>
+        <span class="u-note">面向全球企业的合规观察索引，记录开源与软件合规、破解与非法盈利、独立设计与跟风设计、作息与用工合规四大场景的公开信息与待核验线索，服务于合规预警与风险参考，而非单纯曝光。</span></p>
+    </div>
+</section>
+
+<main id="main">
+
+    <!-- 演示数据声明 -->
+    <div class="demo-banner">
+        <strong>演示数据声明</strong>：本站当前榜单条目、名称、行业与证据均为<strong>测试演示内容</strong>，仅用于验证版式与视觉系统效果，<strong>不针对任何真实存在的企业、组织、个人或开源项目</strong>，不构成事实指控、合规评价或法律结论。真实收录以公开司法判决、行政处罚、监管通报或可靠第三方报告为准，详见 <a href="pages/appeal.html">审核与申诉</a>。
+    </div>
+
+    <!-- 企业速查（按名称搜索榜单归属） -->
+    <section class="section" id="entity-search">
+        <div class="section-head">
+            <h2>企业速查</h2>
+            <p class="section-desc">输入企业名称，查看该主体在四大场景中分别落在哪一级榜单（红榜 / 观察名单 / 灰名单 / 黑名单）</p>
+        </div>
+        <div class="lookup-panel">
+            <form class="lookup-form" action="#" method="get" role="search">
+                <label class="lookup-label" for="lookup-input">企业名称</label>
+                <div class="lookup-input-wrap">
+                    <input class="lookup-input" id="lookup-input" name="q" type="search"
+                           placeholder="输入企业名称，如「演示主体」或「DemoLib」"
+                           autocomplete="off">
+                    <button class="btn btn-primary" type="submit">查询</button>
+                    <button class="btn btn-secondary lookup-clear" type="button" disabled>清除</button>
+                </div>
+            </form>
+            <p class="lookup-count" aria-live="polite"></p>
+            <div class="lookup-results"></div>
+            <noscript>
+                <p class="lookup-hint">当前浏览器未启用 JavaScript，速查功能不可用；可直接前往各
+                    <a href="pages/open-source.html">场景榜单页</a> 浏览全部条目。</p>
+            </noscript>
+        </div>
+    </section>
+
+    <!-- 核心理念 -->
+    <section class="section" id="principles">
+        <div class="section-head">
+            <h2>核心理念</h2>
+            <p class="section-desc">三条底线贯穿全部收录、展示与申诉流程</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <span class="card-tag">01</span>
+                <h3>可核验</h3>
+                <p>每一条记录都必须附带可核验的证据来源，经历从「待考证」到「待自证」再到最终结论的完整闭环。</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">02</span>
+                <h3>可申诉</h3>
+                <p>被点名主体有权提交反证材料进入申诉流程，核验后可降级、撤销或转入观察名单。</p>
+            </div>
+            <div class="card">
+                <span class="card-tag">03</span>
+                <h3>可撤销</h3>
+                <p>榜单价值在于预警与合规参考，而非单纯曝光；核验不通过即撤销，状态可回退。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 四大场景导航 -->
+    <section class="section" id="scenarios">
+        <div class="section-head">
+            <h2>场景分区</h2>
+            <p class="section-desc">按四大场景浏览榜单，每个场景内部再按四级榜单展示</p>
+        </div>
+        <div class="card-grid cols-3">
+            <a class="card" href="pages/open-source.html">
+                <span class="card-tag">场景一</span>
+                <h3>开源与软件合规</h3>
+                <p>开源许可证使用、商用授权与传染性许可证（GPL / AGPL / SSPL / BSL 等）的合规风险观察。</p>
+                <span class="card-more">进入场景 →</span>
+            </a>
+            <a class="card" href="pages/illegal-profit.html">
+                <span class="card-tag">场景二</span>
+                <h3>破解与非法盈利</h3>
+                <p>破解授权、绕过加密锁、盗用源代码与非法盈利的公开案件收录；只呈现违法模式与后果，不提供破解细节。</p>
+                <span class="card-more">进入场景 →</span>
+            </a>
+            <a class="card" href="pages/design.html">
+                <span class="card-tag">场景三</span>
+                <h3>独立设计与跟风设计</h3>
+                <p>在「违法 / 合规」之外引入「设计来源 / 竞争性质」维度，避免把正常市场竞争误判为侵权。</p>
+                <span class="card-more">进入场景 →</span>
+            </a>
+            <a class="card" href="pages/labor.html">
+                <span class="card-tag">场景四</span>
+                <h3>作息与用工合规</h3>
+                <p>依据劳动监察处罚、法院判决与公开通报的工时与加班合规评级，覆盖工时制度与红线情形。</p>
+                <span class="card-more">进入场景 →</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 四级榜单 -->
+    <section class="section" id="levels">
+        <div class="section-head">
+            <h2>四级榜单</h2>
+            <p class="section-desc">所有场景统一采用四级榜单结构，便于跨场景对比与首页导航</p>
+        </div>
+        <div class="level-grid">
+            <div class="level-card red">
+                <div class="level-strip"></div>
+                <div class="level-body">
+                    <span class="level-name">红榜</span>
+                    <p>合规、可信、可推荐，证据充分。处理方式：可公开推荐。</p>
+                </div>
+            </div>
+            <div class="level-card watch">
+                <div class="level-strip"></div>
+                <div class="level-body">
+                    <span class="level-name">观察名单</span>
+                    <p>存在争议或风险，但证据不足。处理方式：仅提示风险，不下结论。</p>
+                </div>
+            </div>
+            <div class="level-card gray">
+                <div class="level-strip"></div>
+                <div class="level-body">
+                    <span class="level-name">灰名单</span>
+                    <p>已提交初步证据，处于待考证 / 待自证 / 待核验状态。处理方式：标注「未证实」，限制传播，启动核验，可申诉。</p>
+                </div>
+            </div>
+            <div class="level-card black">
+                <div class="level-strip"></div>
+                <div class="level-body">
+                    <span class="level-name">黑名单</span>
+                    <p>已有行政处罚、法院判决、监管通报或可靠第三方报告。处理方式：可正式列入，附来源链接与结论摘要。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 状态流转 -->
+    <section class="section" id="status-flow">
+        <div class="section-head">
+            <h2>状态流转</h2>
+            <p class="section-desc">从「待考证」到「待自证」再到最终结论的完整闭环</p>
+        </div>
+        <div class="flow-board">
+            <div class="flow-track">
+                <span class="flow-node">提交线索</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">gray_unverified</code>（待考证）</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">gray_self_proof</code>（待自证）</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">blacklisted</code>（黑名单）/ <code lang="en">red</code>（红榜）</span>
+            </div>
+            <p class="flow-branch">分支：<code lang="en">gray_self_proof</code> 核验不通过 → <code lang="en">revoked</code>（撤销）；被点名方提交反证申诉 → <code lang="en">appealing</code>（申诉中）→ 降级 / 撤销 / 转入观察名单。对外展示的四级榜单由统一状态枚举映射得到。</p>
+        </div>
+    </section>
+
+    <!-- 免责声明 -->
+    <section class="section" id="disclaimer">
+        <div class="disclaimer-bar">
+            <strong>免责声明</strong>：本榜单仅收录公开司法判决、行政处罚、监管通报或权威第三方报告，灰名单内容统一标注「未证实」，不代表司法结论；本站信息仅供合规预警与参考，不构成法律意见。（完整免责条款见 <a href="pages/about.html">关于与法律边界</a>）
+        </div>
+    </section>
+
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="site-footer">
+    <div class="inner">
+        <nav class="footer-nav">
+            <a href="index.html">首页</a>
+            <a href="pages/open-source.html">开源与软件合规</a>
+            <a href="pages/illegal-profit.html">破解与非法盈利</a>
+            <a href="pages/design.html">独立设计与跟风设计</a>
+            <a href="pages/labor.html">作息与用工合规</a>
+            <a href="pages/methodology.html">分级体系</a>
+            <a href="pages/appeal.html">申诉通道</a>
+            <a href="pages/about.html">关于</a>
+        </nav>
+        <p class="footer-note">
+            © 企业合规红黑榜 · 合规观察索引。本站信息来源于公开渠道，仅供合规预警与参考，不构成法律意见。<br>
+            项目仓库：GitHub · BAIJIE4015/compliance-red-black-list · 线索与申诉：appeals/ 目录模板 · 备案信息随正式上线公示。
+        </p>
+    </div>
+</footer>
+
+<script src="assets/js/filter.js" defer></script>
+<script src="assets/js/search-data.js" defer></script>
+<script src="assets/js/entity-search.js" defer></script>
+
+</body>
+</html>

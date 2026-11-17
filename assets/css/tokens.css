@@ -1,0 +1,105 @@
+/* ============================================================
+   企业合规红黑榜 · UI 体系
+   Layer 1/5 设计令牌（tokens）
+   唯一口径：项目根 DESIGN.md —— 下游层禁止一次性颜色/间距/字号
+   ============================================================ */
+
+:root {
+    /* ---------- 表面与文字 ---------- */
+    --color-canvas: #f6f7f9;
+    --color-surface: #ffffff;
+    --color-surface-sunken: #fafbfc;
+    --color-border: #e4e7ed;
+    --color-text: #1f2329;
+    --color-text-muted: #646a73;
+    --color-text-faint: #6b7280;
+
+    /* ---------- 动作与焦点 ---------- */
+    --color-action: #c0392b;
+    --color-action-hover: #96281b;
+    --color-action-soft: #fdf0ee;
+    --color-focus: #1d4ed8;
+
+    /* ---------- 四级榜单 ----------
+       图形用原色（≥3:1），文字必须用 -ink（≥4.5:1），见 DESIGN.md §2.2 */
+    --tier-red: #c0392b;
+    --tier-red-soft: #fdf0ee;
+    --tier-red-ink: #c0392b;
+    --tier-watch: #b8860b;
+    --tier-watch-soft: #fdf6e7;
+    --tier-watch-ink: #8a6d1a;
+    --tier-gray: #6b7280;
+    --tier-gray-soft: #f1f2f4;
+    --tier-gray-ink: #5c6470;
+    --tier-black: #1a1a1a;
+    --tier-black-soft: #e8e8e8;
+    --tier-black-ink: #1a1a1a;
+
+    /* ---------- 警示与动作面上的文字 ---------- */
+    --color-warning-ink: #8a6d1a;
+    --color-warning-border: #f0e2bc;
+    --color-on-action: #ffffff;
+
+    /* ---------- 字体族（系统栈，无网络字体许可风险） ---------- */
+    --font-family: "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB",
+        "Source Han Sans SC", "Noto Sans SC", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Consolas, "Courier New", monospace;
+
+    /* ---------- 字号角色（DESIGN.md §3） ---------- */
+    --text-page: 30px;
+    --text-page-m: 24px;
+    --text-section: 21px;
+    --text-card: 17px;
+    --text-sub: 16px;
+    --text-long: 16px;
+    --text-ui: 14px;
+    --text-meta: 13px;
+    --text-badge: 12px;
+
+    /* ---------- 行高角色 ---------- */
+    --lh-tight: 1.3;
+    --lh-head: 1.4;
+    --lh-meta: 1.5;
+    --lh-ui: 1.6;
+    --lh-long: 1.75;
+
+    /* ---------- 字重角色（正文最低 400，禁细体） ---------- */
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    /* ---------- 间距刻度（4px 基准；内 < 相关项 < 分组 < 区块） ---------- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+    --space-8: 64px;
+
+    /* ---------- 圆角与深度 ---------- */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-pill: 20px;
+    --shadow-hover: 0 4px 12px rgba(31, 35, 41, 0.10);
+    --shadow-overlay: 0 8px 24px rgba(31, 35, 41, 0.12);
+
+    /* ---------- 动效（仅反馈；reduced-motion 下置 0） ---------- */
+    --motion-fast: 120ms ease;
+
+    /* ---------- 组件尺寸 ---------- */
+    --header-h: 60px;
+    --btn-h: 40px;
+    --tap-sm: 36px;
+    --tap-min: 44px;
+    --tier-strip-h: 6px;
+    --bar-w: 4px;
+    --badge-px: 10px;
+    --dot-size: 6px;
+
+    /* ---------- 布局 ---------- */
+    --max-width: 1120px;
+    --measure: 720px;
+}

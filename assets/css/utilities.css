@@ -1,0 +1,29 @@
+/* ============================================================
+   Layer 5/5 工具层（utilities）
+   低特异性单点修饰工具类，命名 .u-*，只做一件事
+   ============================================================ */
+
+/* 跳过导航（键盘首个焦点目标，聚焦时显形） */
+.u-skip-link {
+    position: absolute;
+    left: var(--space-4);
+    top: -100px;
+    z-index: 200;
+    background: var(--color-action);
+    color: var(--color-on-action);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-ui);
+    font-weight: var(--fw-semibold);
+    transition: top var(--motion-fast);
+}
+
+.u-skip-link:focus-visible {
+    top: var(--space-3);
+}
+
+/* 横幅小注（收编原内联 style="font-size:13px"） */
+.u-note {
+    font-size: var(--text-meta);
+    line-height: var(--lh-meta);
+}

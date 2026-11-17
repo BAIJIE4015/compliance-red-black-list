@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>分级体系与状态流转 · 企业合规红黑榜</title>
+    <meta name="description" content="四级榜单、状态枚举与流转规则、数据字段设计">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+
+<a class="u-skip-link" href="#main">跳到主内容</a>
+
+<header class="site-header">
+    <div class="inner">
+        <a class="site-logo" href="../index.html"><span class="logo-mark"></span>企业合规红黑榜</a>
+        <nav class="site-nav">
+            <a href="../index.html">首页</a>
+            <a href="open-source.html">开源与软件合规</a>
+            <a href="illegal-profit.html">破解与非法盈利</a>
+            <a href="design.html">独立设计与跟风设计</a>
+            <a href="labor.html">作息与用工合规</a>
+            <a class="active" href="methodology.html">分级体系</a>
+            <a href="appeal.html">申诉通道</a>
+            <a href="about.html">关于</a>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="inner">
+        <p class="breadcrumb">
+            <a href="../index.html">首页</a><span class="sep">/</span>分级体系与状态流转
+        </p>
+        <h1>分级体系与状态流转</h1>
+        <p class="subtitle">四级榜单结构、统一状态枚举与流转规则、数据字段设计 —— 对外展示的四级榜单由统一状态枚举映射得到</p>
+    </div>
+</section>
+
+<main id="main">
+
+    <!-- 四级榜单 -->
+    <section class="section" id="levels">
+        <div class="section-head">
+            <h2>四级榜单</h2>
+            <p class="section-desc">所有场景统一采用四级榜单结构，便于跨场景对比与首页导航</p>
+        </div>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>分级</th>
+                        <th>含义</th>
+                        <th>处理方式</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge badge-red">红榜</span></td>
+                        <td>合规、可信、可推荐，证据充分</td>
+                        <td>可公开推荐</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-watch">观察名单</span></td>
+                        <td>存在争议或风险，但证据不足</td>
+                        <td>仅提示风险，不下结论</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-gray">灰名单</span></td>
+                        <td>已提交初步证据，处于待考证 / 待自证 / 待核验状态</td>
+                        <td>标注「未证实」，限制传播，启动核验，可申诉</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge badge-black">黑名单</span></td>
+                        <td>已有行政处罚、法院判决、监管通报或可靠第三方报告</td>
+                        <td>可正式列入，附来源链接与结论摘要</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- 状态枚举与流转 -->
+    <section class="section" id="status-machine">
+        <div class="section-head">
+            <h2>状态枚举与流转规则</h2>
+            <p class="section-desc">程序层统一状态枚举：red / watch / gray_unverified / gray_self_proof / blacklisted / appealing / revoked</p>
+        </div>
+        <div class="flow-board">
+            <div class="flow-track">
+                <span class="flow-node">提交线索</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">gray_unverified</code>（待考证）</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">gray_self_proof</code>（待自证）</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node"><code lang="en">blacklisted</code>（黑名单）/ <code lang="en">red</code>（红榜）</span>
+            </div>
+            <p class="flow-branch">分支流转：<code lang="en">gray_self_proof</code> 核验不通过 → <code lang="en">revoked</code>（撤销）；被点名方提交反证 → <code lang="en">appealing</code>（申诉中）→ 复核后降级 / 撤销 / 转入观察名单；<code lang="en">revoked</code> 亦可由超期未补证据自动触发。对外展示的四级榜单（红榜 / 观察名单 / 灰名单 / 黑名单）由上述状态枚举映射得到。</p>
+        </div>
+    </section>
+
+    <!-- 判定标准 -->
+    <section class="section" id="criteria">
+        <div class="section-head">
+            <h2>各状态判定标准</h2>
+            <p class="section-desc">进入各状态所需满足的最低条件</p>
+        </div>
+
+        <h3>待考证（gray_unverified）</h3>
+        <ul class="rule-list">
+            <li>有明确涉嫌主体、有具体涉嫌行为描述、至少一项线索来源，但尚未提交可核验证据。</li>
+            <li>对外统一标注「未证实」，限制传播；不得仅凭传闻、匿名爆料或「听说」直接定性。</li>
+        </ul>
+
+        <h3>待自证（gray_self_proof）</h3>
+        <ul class="rule-list">
+            <li>已上传至少一项可核验证据、证据能指向具体主体与行为、提交人声明来源合法、平台或第三方开始核验。</li>
+            <li>强制字段齐全：涉嫌主体 / 涉嫌行为 / 证据类型 / 证据来源 / 可信度 / 时间线 / 风险等级 / 核验计划。</li>
+        </ul>
+
+        <h3>转黑名单（blacklisted）</h3>
+        <ul class="rule-list">
+            <li>须满足至少一项：生效刑事 / 民事判决、行政处罚决定、权利人公开维权公告且有佐证、两家以上独立第三方交叉印证、平台完成代码 / 授权 / 合同 / 销售链路独立核验。</li>
+            <li>必须标注处罚国家 / 地区与来源链接；国别信息缺失的条目不得进入黑名单；境外判决不直接等同于中国法律结论。</li>
+        </ul>
+    </section>
+
+    <!-- 数据字段设计 -->
+    <section class="section" id="data-fields">
+        <div class="section-head">
+            <h2>数据字段设计</h2>
+            <p class="section-desc">每个条目的统一字段、国别与实体类型、场景扩展字段</p>
+        </div>
+
+        <h3>通用字段</h3>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td>string</td>
+                        <td>条目唯一标识</td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td>string</td>
+                        <td>主体名称（企业实体或开源项目 / 软件产品）</td>
+                    </tr>
+                    <tr>
+                        <td><code>industry</code></td>
+                        <td>string</td>
+                        <td>所属行业</td>
+                    </tr>
+                    <tr>
+                        <td><code>scenario</code></td>
+                        <td>enum</td>
+                        <td>场景：open-source / illegal-profit / design / labor</td>
+                    </tr>
+                    <tr>
+                        <td><code>status</code></td>
+                        <td>enum</td>
+                        <td>状态：red / watch / gray_unverified / gray_self_proof / blacklisted / appealing / revoked</td>
+                    </tr>
+                    <tr>
+                        <td><code>summary</code></td>
+                        <td>string</td>
+                        <td>结论摘要</td>
+                    </tr>
+                    <tr>
+                        <td><code>tags</code></td>
+                        <td>string[]</td>
+                        <td>标签数组</td>
+                    </tr>
+                    <tr>
+                        <td><code>evidence</code></td>
+                        <td>array</td>
+                        <td>证据数组，每项含 type / title / url / date</td>
+                    </tr>
+                    <tr>
+                        <td><code>submitted_by</code> / <code>submitted_at</code></td>
+                        <td>string / datetime</td>
+                        <td>提交人与提交时间</td>
+                    </tr>
+                    <tr>
+                        <td><code>verified_by</code> / <code>verified_at</code></td>
+                        <td>string / datetime</td>
+                        <td>核验人与核验时间</td>
+                    </tr>
+                    <tr>
+                        <td><code>appeal_status</code></td>
+                        <td>string</td>
+                        <td>申诉状态</td>
+                    </tr>
+                    <tr>
+                        <td><code>last_updated</code></td>
+                        <td>datetime</td>
+                        <td>最后更新时间</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>国别与实体类型</h3>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>country_of_incorporation</code></td>
+                        <td>string</td>
+                        <td>注册地（ISO 3166-1 alpha-2）</td>
+                    </tr>
+                    <tr>
+                        <td><code>operating_regions</code></td>
+                        <td>string[]</td>
+                        <td>实际运营地区</td>
+                    </tr>
+                    <tr>
+                        <td><code>headquarters</code></td>
+                        <td>string</td>
+                        <td>总部所在地</td>
+                    </tr>
+                    <tr>
+                        <td><code>entity_type</code></td>
+                        <td>enum</td>
+                        <td>实体类型：parent / subsidiary / branch / project</td>
+                    </tr>
+                    <tr>
+                        <td><code>parent_company</code> / <code>subsidiaries</code></td>
+                        <td>string / string[]</td>
+                        <td>母公司与子公司列表；母公司违法不自动连坐子公司，子公司 / 分公司独立违法单独建条目</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>作息合规扩展字段</h3>
+        <div class="table-wrap">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>字段</th>
+                        <th>类型</th>
+                        <th>说明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>work_hours</code></td>
+                        <td>string</td>
+                        <td>标准作息（如 09:00–18:00）</td>
+                    </tr>
+                    <tr>
+                        <td><code>work_time_system</code></td>
+                        <td>enum</td>
+                        <td>工时制度：standard / comprehensive / flexible</td>
+                    </tr>
+                    <tr>
+                        <td><code>approved_special_hours</code></td>
+                        <td>boolean</td>
+                        <td>特殊工时是否经人社部门审批</td>
+                    </tr>
+                    <tr>
+                        <td><code>overtime_rule</code></td>
+                        <td>string</td>
+                        <td>加班规则与月加班上限核查记录</td>
+                    </tr>
+                    <tr>
+                        <td><code>monthly_overtime_hours</code></td>
+                        <td>number</td>
+                        <td>月加班时长（对照法定 36 小时上限）</td>
+                    </tr>
+                    <tr>
+                        <td><code>penalty</code></td>
+                        <td>object</td>
+                        <td>处罚对象：authority / country / date / fine / affected_employees</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="inner">
+        <nav class="footer-nav">
+            <a href="../index.html">首页</a>
+            <a href="open-source.html">开源与软件合规</a>
+            <a href="illegal-profit.html">破解与非法盈利</a>
+            <a href="design.html">独立设计与跟风设计</a>
+            <a href="labor.html">作息与用工合规</a>
+            <a href="methodology.html">分级体系</a>
+            <a href="appeal.html">申诉通道</a>
+            <a href="about.html">关于</a>
+        </nav>
+        <p class="footer-note">
+            © 企业合规红黑榜 · 合规观察索引。对外展示的四级榜单由统一状态枚举映射得到。
+        </p>
+    </div>
+</footer>
+
+<script src="../assets/js/filter.js" defer></script>
+
+</body>
+</html>

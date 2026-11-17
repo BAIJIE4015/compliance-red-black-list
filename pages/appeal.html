@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>审核、申诉与防滥用 · 企业合规红黑榜</title>
+    <meta name="description" content="黑名单/灰名单准入、申诉流程与防滥用规则">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+</head>
+<body>
+
+<a class="u-skip-link" href="#main">跳到主内容</a>
+
+<header class="site-header">
+    <div class="inner">
+        <a class="site-logo" href="../index.html"><span class="logo-mark"></span>企业合规红黑榜</a>
+        <nav class="site-nav">
+            <a href="../index.html">首页</a>
+            <a href="open-source.html">开源与软件合规</a>
+            <a href="illegal-profit.html">破解与非法盈利</a>
+            <a href="design.html">独立设计与跟风设计</a>
+            <a href="labor.html">作息与用工合规</a>
+            <a href="methodology.html">分级体系</a>
+            <a class="active" href="appeal.html">申诉通道</a>
+            <a href="about.html">关于</a>
+        </nav>
+    </div>
+</header>
+
+<section class="page-hero">
+    <div class="inner">
+        <p class="breadcrumb">
+            <a href="../index.html">首页</a><span class="sep">/</span>审核、申诉与防滥用
+        </p>
+        <h1>审核、申诉与防滥用</h1>
+        <p class="subtitle">准入门槛、申诉流程与防滥用规则 —— 收录有证据门槛，申诉有明确通道，状态可回退</p>
+    </div>
+</section>
+
+<main id="main">
+
+    <!-- 黑名单准入 -->
+    <section class="section" id="black-admission">
+        <div class="section-head">
+            <h2>黑名单准入</h2>
+            <p class="section-desc">正式列入黑名单必须满足的证据门槛</p>
+        </div>
+        <ul class="rule-list">
+            <li><strong>司法与行政文书</strong>：生效法院判决（刑事 / 民事）或行政处罚决定，须可核验且已生效。</li>
+            <li><strong>通报与交叉印证</strong>：检察 / 监管通报、权利人公开维权公告且有佐证，或两家以上独立第三方报告交叉印证。</li>
+            <li><strong>标注要求</strong>：必须注明处罚国家 / 地区与来源链接；国别信息缺失的条目不得进入黑名单。</li>
+        </ul>
+    </section>
+
+    <!-- 灰名单准入 -->
+    <section class="section" id="gray-admission">
+        <div class="section-head">
+            <h2>灰名单准入</h2>
+            <p class="section-desc">进入「待考证 / 待自证」的证据要求与强制字段</p>
+        </div>
+        <ul class="rule-list">
+            <li><strong>准入条件</strong>：至少提交一项可核验证据，条目统一标注「未证实」；不得仅凭传闻、匿名爆料或「听说」直接定性。</li>
+            <li><strong>强制字段</strong>：涉嫌主体 / 涉嫌行为 / 证据类型 / 证据来源 / 可信度 / 时间线 / 风险等级 / 核验计划，缺项不予受理。</li>
+            <li><strong>禁止事项</strong>：匿名线索默认不进入待自证；证据不足的线索仅可停留在「待考证」并限制传播。</li>
+        </ul>
+    </section>
+
+    <!-- 申诉流程 -->
+    <section class="section" id="appeal-flow">
+        <div class="section-head">
+            <h2>申诉流程</h2>
+            <p class="section-desc">被收录主体提交反证材料的完整路径</p>
+        </div>
+        <div class="flow-board">
+            <div class="flow-track">
+                <span class="flow-node">提交反证材料（appeals/ 模板）</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node">14 天内复核</span>
+                <span class="flow-arrow" aria-hidden="true">→</span>
+                <span class="flow-node">降级 / 撤销 / 转入观察名单</span>
+            </div>
+            <p class="flow-branch">复核期间条目状态转为 <code lang="en">appealing</code>（申诉中）并加注提示；核验通过后回写结论与状态流转记录，全程可追溯。</p>
+        </div>
+
+        <h3>反证材料类型</h3>
+        <ul class="rule-list">
+            <li><strong>司法与澄清类</strong>：判决书 / 裁定书、行政机关撤销或变更决定、官方澄清声明等。</li>
+            <li><strong>过程与审计类</strong>：独立设计 / 研发过程证据（设计稿、版本迭代、代码图纸原型）、用工合规审批文件、第三方审计报告等。</li>
+        </ul>
+
+        <h3>申诉模板</h3>
+        <div class="flow-board">
+            <p>申诉模板位于仓库 <code>appeals/</code> 目录，按模板填写主体信息、涉及条目、反证材料清单与联系方式后提交。材料不全将一次性告知补正；复核完成后，核验结论、降级 / 撤销决定与依据同步回条目状态流转记录。</p>
+        </div>
+    </section>
+
+    <!-- 防滥用规则 -->
+    <section class="section" id="anti-abuse">
+        <div class="section-head">
+            <h2>防滥用规则</h2>
+            <p class="section-desc">防止恶意举报与证据滥用的约束条款</p>
+        </div>
+        <ul class="rule-list">
+            <li>禁止只写「疑似 / 听说」而无来源的举报，此类线索不予受理。</li>
+            <li>匿名线索默认不进入待自证阶段，不对外展示为可核验证据。</li>
+            <li>超期未补充证据的条目自动降级或撤销，不无限期挂网。</li>
+            <li>伪造证据、恶意竞争举报者限制提交权限并记录在案。</li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <div class="inner">
+        <nav class="footer-nav">
+            <a href="../index.html">首页</a>
+            <a href="open-source.html">开源与软件合规</a>
+            <a href="illegal-profit.html">破解与非法盈利</a>
+            <a href="design.html">独立设计与跟风设计</a>
+            <a href="labor.html">作息与用工合规</a>
+            <a href="methodology.html">分级体系</a>
+            <a href="appeal.html">申诉通道</a>
+            <a href="about.html">关于</a>
+        </nav>
+        <p class="footer-note">
+            © 企业合规红黑榜 · 合规观察索引。被点名主体有权提交反证材料进入申诉流程。
+        </p>
+    </div>
+</footer>
+
+<script src="../assets/js/filter.js" defer></script>
+
+</body>
+</html>
